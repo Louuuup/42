@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:44:31 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/16 14:11:58 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:46:50 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,30 @@ int	main(void)
 	printf("%s\n", y1);
 	return (0);
 }
+
+// size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	size_t	slength;
+// 	size_t	dlength;
+
+// 	j = 0;
+// 	i = 0;
+// 	if (dst == NULL && dstsize == 0)
+// 		return (ft_strlen(src));
+// 	while (dst[j] != '\0')
+// 		j++;
+// 	dlength = j;
+// 	slength = ft_strlen(src);
+// 	if (dstsize == 0 || dstsize <= dlength)
+// 		return (slength + dstsize);
+// 	while (src[i] != '\0' && j < dstsize - 1)
+// 	{
+// 		dst[j] = src[i];
+// 		i++;
+// 		j++;
+// 	}
+// 	dst[j] = '\0';
+// 	return (dlength + slength);
+// }
