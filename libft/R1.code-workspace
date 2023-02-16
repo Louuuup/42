@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Piscine"
+		},
+		{
+			"path": "../../sandbox"
+		},
+		{
+			"path": "../../GIT"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c"
+		}
+	}
+}
