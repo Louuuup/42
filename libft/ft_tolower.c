@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 15:15:43 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/17 13:41:33 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/02/17 19:08:02 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/02/17 19:21:34 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <ctype.h>
 
-# include <stdlib.h>
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
+}
 
-void	*ft_bzero(void *s, size_t n);
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memset(void *b, int c, size_t len);
-int		ft_strlen(const char *s);
+// #include <stdio.h>
 
-#endif
+// int main(void)
+// {
+// 	int x = 'S';
+// 	printf("%c\n", tolower(x));
+// 	printf("%c\n", ft_tolower(x));
+// }
