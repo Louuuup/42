@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 19:08:02 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/17 19:25:52 by yakary           ###   ########.fr       */
+/*   Created: 2023/02/18 02:29:19 by yakary            #+#    #+#             */
+/*   Updated: 2023/02/18 15:01:22 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-
-int	ft_toupper(int c)
+#include <stdlib.h>
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	else
-		return (c);
+	char *str;
+
+	str = (unsigned char *)s;
+	
+	while (n-- && str)
+		{
+			if (*str == c)
+				return (str);
+			str++;
+		}
+	return (NULL);
 }
 
+// #include <string.h>
 // #include <stdio.h>
-
 // int main(void)
 // {
-// 	int x = 's';
-// 	printf("%c\n", toupper(x));
-// 	printf("%c\n", ft_toupper(x));
+// 	int chr = 's';
+// 	int x = 3;
+// 	char test[] = "salut";
+// 	printf("%s\n", (char*)memchr(test, chr, x));
+// 	printf("%s\n", (char*)ft_memchr(test, chr, x));
 // }
