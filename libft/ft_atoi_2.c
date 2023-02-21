@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 16:04:57 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/21 12:42:28 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/02/21 12:33:07 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/02/21 12:53:30 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *str)
 {
-	char	*string;
 	int		x;
 	int		n;
 	int		neg;
+	char	*string;
 
 	string = (char *)str;
-	n = 0;
 	neg = 1;
+	n = 0;
 	x = 0;
-	while (string[x] < 48 || string[x] > 57)
+	if (string[x] == '\0')
+		return (0);
+	while (string[x] == 32 || string[x] == 43)
 	{
-		if (string[x] > 32 && string[x] != 43 && string[x] != 45)
-			return (0);
-		if (string[x] == 45)
-			neg = -neg;
 		x++;
 	}
-	while (string[x] > 47 && string[x] < 58)
+	if (string[x] == 45)
+	{
+		neg = -neg;
+		x++;
+	}
+	while (string[x] >= 48 && string[x] <= 57)
 	{
 		n *= 10;
 		n += (string[x] - 48);
@@ -44,8 +45,8 @@ int	ft_atoi(const char *str)
 #include <stdlib.h>
 int main(void)
 {
-	char a[] = "       242a3 25     ";
-	// printf("%d\n", (ft_atoi(a)));
+	char a[] = "       +242a3 25     ";
+	printf("%d\n", (ft_atoi(a)));
 	printf("%d\n", (atoi(a)));
 	return (0);
 }
