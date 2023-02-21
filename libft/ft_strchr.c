@@ -6,33 +6,38 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:37:33 by yakary            #+#    #+#             */
-/*   Updated: 2023/02/20 20:42:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/21 15:31:53 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include "ft_strlen.c"
 char	*ft_strchr(const char *s, int c)
 {
 	char	*str;
 
 	str = (char *)s;
-	while (*str++)
+	while (*str)
 	{
 		if (*str == c)
 			return (str);
+		str++;
+	}
+	if ((char)c == '\0')
+	{
+		return (&str[ft_strlen(str)]);
 	}
 	return (NULL);
 }
 
-// #include <stdio.h>
-// #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
-// int main(void)
-// {
-// 	int x = 'o';
-// 	char *str = "Hello World";
-// 	char *str1 = "Hello World";
-// 	printf("%s\n", strchr(str, x));
-// 	printf("%s\n", strchr(str1, x));
-// }
+int main(void)
+{
+ 	char *s = "tripouille";
+ 	char *d1 = strchr(s, 't' + 256);
+ 	char *d2 = ft_strchr(s, 't' + 256);
+	printf("%s\n", d1);
+	printf("%s\n", d2);
+}
