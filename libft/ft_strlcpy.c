@@ -6,10 +6,11 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:07:23 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/15 20:40:40 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:54:38 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

@@ -6,10 +6,11 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:58:02 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/15 14:04:31 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:55:02 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)

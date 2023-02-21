@@ -6,10 +6,11 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:39:54 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/14 14:22:09 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:54:59 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 void	*ft_memset(void *b, int c, size_t len)

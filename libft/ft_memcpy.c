@@ -6,13 +6,12 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:01:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/15 14:04:15 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:59:36 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

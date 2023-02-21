@@ -6,14 +6,14 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:44:31 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/17 18:21:03 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:01:49 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+// #include <stdlib.h>
 
-int	ft_strlen(const char *s);
+// int	ft_strlen(const char *s);
 // {
 // 	int	x;
 

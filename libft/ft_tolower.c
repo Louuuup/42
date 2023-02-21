@@ -6,11 +6,11 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:08:02 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/17 19:21:34 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:32:09 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
@@ -21,7 +21,7 @@ int	ft_tolower(int c)
 }
 
 // #include <stdio.h>
-
+// #include <ctype.h>
 // int main(void)
 // {
 // 	int x = 'S';

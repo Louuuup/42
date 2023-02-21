@@ -1,39 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 10:59:47 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/20 16:54:32 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/01/25 16:04:57 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/02/20 20:31:44 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s);
-
-int	ft_strlen(const char *s)
+int	ft_atoi(const char *str)
 {
-	int	x;
+	char	*string;
+	int		x;
+	int		n;
+	int		neg;
 
+	string = (char *)str;
+	n = 0;
+	neg = 1;
 	x = 0;
-	if (s[0] == '\0')
-		return (0);
-	while (s[x] != '\0')
+	while (string[x] < 48 || string[x] > 57)
 	{
+		if (string[x] > 32 && string[x] != 43 && string[x] != 45)
+			return (0);
+		if (string[x] == 45)
+			neg = -neg;
 		x++;
 	}
-	return (x);
+	while (string[x] > 47 && string[x] < 58)
+	{
+		n *= 10;
+		n += (string[x] - 48);
+		x++;
+	}
+	return (n * neg);
 }
 
-// #include <string.h>
 // #include <stdio.h>
-
+// #include <stdlib.h>
 // int main(void)
 // {
-// 	char test[] = "abcdefghijjkashdwlnmopqwxyz";
-// 	printf("%d\n", ft_strlen(test));
-// 	printf("%lu\n", strlen(test));
+// 	char a[] = "8";
+// 	printf("%d\n", (ft_atoi(a)));
+// 	printf("%d\n", (atoi(a)));
+// 	return (0);
 // }
