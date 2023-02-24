@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 02:29:19 by yakary            #+#    #+#             */
-/*   Updated: 2023/02/24 12:36:55 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/02/24 17:06:28 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/02/24 17:52:26 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	unsigned char	x;
-	unsigned char	*str;
+	char	*sub;
 
-	x = c;
-	i = 0;
-	str = (unsigned char *)s;
 	if (!s)
 		return (NULL);
-	while (i < n)
-	{
-		if (str[i] == x)
-			return ((void *)&str[i]);
-		i++;
-	}
-	return (NULL);
+	if ((unsigned int)ft_strlen(s) < start)
+		return (ft_strdup (""));
+	if ((int)len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	sub = malloc(len * sizeof(char));
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, &s[start], len);
+	return (sub);
 }
 
-// #include <string.h>
 // #include <stdio.h>
+// #include "ft_strlcpy.c"
+// #include "ft_strlen.c"
+// #include "ft_strdup.c"
 // int main(void)
 // {
-// 	int chr = ' ';
-// 	int x = 3;
-// 	char test[] = "salut";
-// 	printf("%s\n", (char*)memchr(test, chr, x));
-// 	printf("%s\n", (char*)ft_memchr(test, chr, x));
+// 	char *test = "Hi can you copy me?";
+// 	printf("%s\n", ft_substr(test, 11, 8));
 // }

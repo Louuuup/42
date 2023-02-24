@@ -6,25 +6,27 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:24:43 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/23 15:34:48 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:03:02 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
-// #include "ft_strlen.c"
 
 char	*ft_strdup(const char *s1)
 {
 	char	*str;
-	int		size;
 
-	size = ft_strlen(s1);
-	str = malloc(size);
-	str = (char *)s1;
+	if (!s1)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
 	return (str);
 }
 
+// #include "ft_strlen.c"
 // #include <stdio.h>
 // int	main(void)
 // {

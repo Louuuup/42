@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 19:37:33 by yakary            #+#    #+#             */
-/*   Updated: 2023/02/20 20:43:26 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:02:55 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,35 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
+	int		len;
+	char	x;
 
-	str = (char *)s;
-	while (*str++)
+	if (!s)
+		return (NULL);
+	x = c;
+	len = ft_strlen(s);
+	s += len;
+	if (x == '\0' && *s == '\0')
+		return ((char *)s);
+	while (len >= 0)
 	{
-		if (*str == c)
-			return (str);
+		if (*s == x)
+			return ((char *)s);
+		s--;
+		len--;
 	}
 	return (NULL);
 }
 
 // #include <stdio.h>
 // #include <string.h>
+// #include "ft_strlen.c"
 
 // int main(void)
 // {
-// 	int x = 'o';
-// 	char *str = "Hello World";
-// 	char *str1 = "Hello World";
-// 	printf("%s\n", strrchr(str, x));
-// 	printf("%s\n", strrchr(str1, x));
+//  	char *s = "\0";
+//  	char *d1 = strrchr(s, 'a');
+//  	char *d2 = ft_strrchr(s, 'a');
+// 	printf("%s\n", d1);
+// 	printf("%s\n", d2);
 // }
