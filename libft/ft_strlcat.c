@@ -6,26 +6,11 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:44:31 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/20 17:01:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:21:58 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdlib.h>
-
-// int	ft_strlen(const char *s);
-// {
-// 	int	x;
-
-// 	x = 0;
-// 	if (s[0] == '\0')
-// 		return (0);
-// 	while (s[x] != '\0')
-// 	{
-// 		x++;
-// 	}
-// 	return (x);
-// }
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -53,6 +38,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 // #include <stdio.h>
 // #include <string.h>
+// #include "ft_strlen.c"
 
 // int	main(void)
 // {
@@ -65,7 +51,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // 	printf("%s\n", x);
 // 	printf("%s\n", y);
 // 	printf("\n");
-// 	printf("%lu\n", ft_strlcat(x1, y1, n));
+// 	printf("%lu\n", max);
 // 	printf("%s\n", x1);
 // 	printf("%s\n", y1);
 // 	return (0);

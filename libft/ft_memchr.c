@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:29:19 by yakary            #+#    #+#             */
-/*   Updated: 2023/02/20 20:44:03 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:35:36 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
+	unsigned char	*str;
 
-	str = (char *)s;
-	while (n-- && str)
+	str = (unsigned char *)s;
+	if (!str)
+		return (NULL);
+	while (n-- && *str)
 	{
 		if (*str == c)
 			return (str);
@@ -27,13 +29,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
-// #include <string.h>
-// #include <stdio.h>
-// int main(void)
-// {
-// 	int chr = 's';
-// 	int x = 3;
-// 	char test[] = "salut";
-// 	printf("%s\n", (char*)memchr(test, chr, x));
-// 	printf("%s\n", (char*)ft_memchr(test, chr, x));
-// }
+#include <string.h>
+#include <stdio.h>
+int main(void)
+{
+	int chr = ' ';
+	int x = 3;
+	char test[] = "salut";
+	printf("%s\n", (char*)memchr(test, chr, x));
+	printf("%s\n", (char*)ft_memchr(test, chr, x));
+}

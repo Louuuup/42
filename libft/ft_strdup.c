@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:00:14 by yakary            #+#    #+#             */
-/*   Updated: 2023/02/23 15:26:36 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/02/23 15:24:43 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/02/23 15:34:48 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
+#include "libft.h"
+// #include "ft_strlen.c"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s1)
 {
-	void	*str;
+	char	*str;
+	int		size;
 
-	str = malloc(nmemb * size);
+	size = ft_strlen(s1);
+	str = malloc(size);
+	str = (char *)s1;
 	return (str);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char test[] = "salut toi";
+
+// 	printf("%s\n", ft_strdup(test));
+// }
