@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 13:58:02 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/21 14:15:03 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:48:07 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // #include <string.h>
 // int main(void)
 // {
-// 	char b[0xf0];
 // 	char dst[] = "ceci est une phrase";
 // 	char src[] = "wabadabadou";
-// 	printf("%s\n", memmove(b, ((void *)0), 5));
-// 	char dst1[] = "ceci est une phrase";
-// 	printf("%s\n", ft_memmove(b, ((void *)0), 5));
+// 	printf("%s\n", memmove(dst, src, strlen(src)));
 // }
