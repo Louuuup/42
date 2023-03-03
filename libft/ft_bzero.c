@@ -6,15 +6,14 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:25:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/20 16:55:36 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:55:24 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_bzero(void *s, size_t n);
-
+// Fills with 0s
 void	*ft_bzero(void *s, size_t n)
 {
 	unsigned char	*cp;

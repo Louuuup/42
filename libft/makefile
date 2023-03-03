@@ -24,7 +24,8 @@ SRC = ft_bzero.c \
 	  ft_strdup.c \
 	  ft_substr.c \
 	  ft_strjoin.c \
-	  ft_strtrim.c
+	  ft_strtrim.c \
+	  ft_split.c
 OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra -o test
