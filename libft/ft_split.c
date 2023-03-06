@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:39:56 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/03 12:47:55 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:30:28 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	len = 0;
-	if (!s)
-		return (NULL);
 	splits = split_count(s, c);
 	output = (char **)malloc(splits * sizeof(char *));
 	if (!output)
@@ -39,7 +37,7 @@ char	**ft_split(char const *s, char c)
 			len++;
 		while (s[len] == c)
 			len++;
-		output[i] = ft_strdup(split_create(s + len, c));
+		output[i] = split_create(s + len, c);
 		len += ft_strlen(output[i]);
 		if (!output[i++])
 			return (ft_free(output, i));
@@ -122,11 +120,13 @@ static void	*ft_free(char **split, size_t j)
 
 // int main(void)
 // {
-// 	char splitter = ' ';
-// 	char test[] = "         ceci   est une       belle   ";
+// 	char splitter = '\0';
+// 	char test[] = "\0aa\0bbb";
 // 	char **out = ft_split(test, splitter);
 // 	printf("OUT0:%s\n", out[0]);
 // 	printf("OUT1:%s\n", out[1]);
-// 	printf("OUT2:%s\n", out[2]);
-// 	printf("OUT3:%s\n", out[3]);
+// 	// printf("OUT2:%s\n", out[2]);
+// 	// printf("OUT3:%s\n", out[3]);
+// 	// printf("OUT3:%s\n", out[4]);
+// 	// printf("OUT3:%s\n", out[5]);
 // }
