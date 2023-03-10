@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 14:25:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/09 13:07:24 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/03/10 13:49:51 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/03/10 15:21:51 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-// Fills with 0s
-void	*ft_bzero(void *s, size_t n)
+int	main(void)
 {
-	unsigned char	*cp;
+	t_list *no_head_yet;
+	t_list	*head;
 
-	cp = (unsigned char *)s;
-	while (n--)
+	no_head_yet = ft_lstnew("Me: ");
+	head = ft_lstnew("Coucou");
+	head->next = ft_lstnew("comment");
+	head->next->next = ft_lstnew("va?");
+	ft_lstadd_front(&head, no_head_yet);
+	while (head)
 	{
-		*cp++ = 0;
+		printf("%s\n", head->content);
+		head = head->next;
 	}
-	return (s);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char	test[] = "ceci est un test";
-
-// 	printf("%s\n", test);
-// 	printf("%s\n", ft_bzero(test, 2));	
-// 	printf("%s\n", bzero(test, 2));	
-// }
+					

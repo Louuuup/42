@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:00:14 by yakary            #+#    #+#             */
-/*   Updated: 2023/03/03 14:57:04 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:51:07 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*str;
 
 	str = malloc(count * size);
-	if (!size || !count)
-		return (free(str), NULL);
 	if (!str)
 		return (NULL);
 	ft_bzero(str, count * size);
@@ -30,6 +28,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 // #include <stdio.h>
 // #include "ft_memcmp.c"
+// #include "ft_bzero.c"
 
 // int main(void)
 // {

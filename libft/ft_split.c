@@ -6,42 +6,28 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:39:56 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/03 14:30:28 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/06 13:16:23 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char		*split_create(const char *str, char c);
+static char		**split_create(const char *str, char c, char **out);
 static size_t	split_count(const char *str, char c);
 static void		*ft_free(char **split, size_t j);
 
 // Splits into multiple strings, based on the C splitter.
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	len;
 	size_t	splits;
 	char	**output;
 
-	i = 0;
-	len = 0;
 	splits = split_count(s, c);
-	output = (char **)malloc(splits * sizeof(char *));
+	output = (char **)malloc(splits * sizeof(char *) + 1);
 	if (!output)
 		return (NULL);
-	while (i <= splits)
-	{
-		if (len > 0)
-			len++;
-		while (s[len] == c)
-			len++;
-		output[i] = split_create(s + len, c);
-		len += ft_strlen(output[i]);
-		if (!output[i++])
-			return (ft_free(output, i));
-	}
+	split_create(s, c, output);
 	return (output);
 }
 
@@ -71,27 +57,25 @@ static size_t	split_count(const char *str, char c)
 }
 
 // (c)Mallocs and outputs a new string from source untill splitter. 
-static char	*split_create(const char *str, char c)
+static char	**split_create(const char *str, char c, char **out)
 {
 	size_t	i;
 	size_t	j;
-	size_t	len;
-	char	*out;
+	int		len;
 
 	i = 0;
 	j = 0;
-	len = 0;
-	while (str[len] == c)
-		len++;
-	while (str[len] != c && str[len])
-		len++;
-	out = ft_calloc(len + 1, sizeof(char));
-	while (i != len)
+	len = -1;
+	while (i <= (size_t)ft_strlen(str))
 	{
-		if (str[i] != c)
+		if (str[i] != c && len < 0)
+			len = i;
+		else if ((str[i] == c || i == (size_t)ft_strlen(str)) && len >= 0)
 		{
-			out[j] = str[i];
-			j++;
+			out[j] = ft_substr(str, len, i - len);
+			if (!out[j++])
+				return (ft_free(out, j));
+			len = -1;
 		}
 		i++;
 	}

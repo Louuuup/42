@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:24:43 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/24 17:03:02 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:56:52 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s1)
 
 	if (!s1)
 		return (NULL);
-	str = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
+	str = (char *)ft_calloc(ft_strlen(s1) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1, ft_strlen(s1) + 1);

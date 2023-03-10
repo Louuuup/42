@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 14:25:40 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/09 13:07:24 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/03/08 16:07:35 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/03/08 16:11:17 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-// Fills with 0s
-void	*ft_bzero(void *s, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned char	*cp;
+	int		i;
 
-	cp = (unsigned char *)s;
-	while (n--)
+	i = 0;
+	while (s[i])
 	{
-		*cp++ = 0;
+		f(i, &s[i]);
+		i++;
 	}
-	return (s);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char	test[] = "ceci est un test";
-
-// 	printf("%s\n", test);
-// 	printf("%s\n", ft_bzero(test, 2));	
-// 	printf("%s\n", bzero(test, 2));	
-// }

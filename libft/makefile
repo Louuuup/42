@@ -25,8 +25,19 @@ SRC = ft_bzero.c \
 	  ft_substr.c \
 	  ft_strjoin.c \
 	  ft_strtrim.c \
-	  ft_split.c
-OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
+	  ft_split.c \
+	  ft_itoa.c \
+	  ft_strmapi.c \
+	  ft_striteri.c \
+	  ft_putchar_fd.c \
+	  ft_putstr_fd.c \
+	  ft_putendl_fd.c \
+	  ft_putnbr_fd.c
+
+BONUS_SRC = ft_lstnew_bonus.c \
+			ft_lstadd_front.c
+OBJ = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
+OBJ_BONUS = $(addprefix $(BIN_DIR)/, $(BONUS_SRC:.c=.o))
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra -o test
 LIBC = ar rc
@@ -35,6 +46,11 @@ RM = rm -f
 RM_DIR = rm -rf
 BIN_DIR = bin
 VPATH = .
+ifdef IS_BONUS
+OBJS = $(OBJ) $(OBJ_BONUS)
+else
+OBJS = $(OBJ)
+endif
 all: $(NAME)
 $(BIN_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -43,6 +59,8 @@ $(NAME): $(BIN_DIR) $(OBJS)
 	$(LIBR) $(NAME)
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
+bonus:
+	IS_BONUS=1 all
 clean:
 	$(RM_DIR) $(BIN_DIR)
 fclean: clean
