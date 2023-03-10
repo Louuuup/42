@@ -33,11 +33,10 @@ SRC = ft_bzero.c \
 	  ft_putstr_fd.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c
-
-BONUS_SRC = ft_lstnew_bonus.c \
-			ft_lstadd_front.c
-OBJ = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
-OBJ_BONUS = $(addprefix $(BIN_DIR)/, $(BONUS_SRC:.c=.o))
+BSRC = ft_lstnew.c \
+		ft_lstadd_front.c
+OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
+BOBJ = $(addprefix $(BIN_DIR)/, $(BONUS_SRC:.c=.o))
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra -o test
 LIBC = ar rc
@@ -47,9 +46,9 @@ RM_DIR = rm -rf
 BIN_DIR = bin
 VPATH = .
 ifdef IS_BONUS
-OBJS = $(OBJ) $(OBJ_BONUS)
+OBJS_LIST = $(OBJS) $(BOBJS)
 else
-OBJS = $(OBJ)
+OBJS_LIST = $(OBJS)
 endif
 all: $(NAME)
 $(BIN_DIR)/%.o: %.c
@@ -60,7 +59,7 @@ $(NAME): $(BIN_DIR) $(OBJS)
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 bonus:
-	IS_BONUS=1 all
+	make IS_BONUS=1 all
 clean:
 	$(RM_DIR) $(BIN_DIR)
 fclean: clean
