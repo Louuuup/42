@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 13:49:51 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/10 15:21:51 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/02/22 19:00:14 by yakary            #+#    #+#             */
+/*   Updated: 2023/03/10 18:38:19 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *no_head_yet;
-	t_list	*head;
+	t_list	*mettons;
 
-	no_head_yet = ft_lstnew("Me: ");
-	head = ft_lstnew("Coucou");
-	head->next = ft_lstnew("comment");
-	head->next->next = ft_lstnew("va?");
-	ft_lstadd_front(&head, no_head_yet);
-	while (head)
-	{
-		printf("%s\n", head->content);
-		head = head->next;
-	}
+	mettons = ft_calloc(sizeof(t_list), 1);
+	if (!mettons)
+		return (NULL);
+	mettons->content = content;
+	mettons->next = NULL;
+	return (mettons);
 }
-					

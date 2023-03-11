@@ -6,29 +6,28 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 16:30:38 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/08 16:47:14 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:45:09 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-static void	ft_putchar(int c);
+static void	ft_putchar(int c, int fd);
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	x;
-
-	x = 0;
 	if (n == -2147483648)
 	{
-		ft_putchar('-');
-		ft_putchar('2');
+		ft_putchar('-', fd);
+		ft_putchar('2', fd);
 		ft_putnbr_fd(147483648, fd);
 	}
+	else if (n == 0)
+		ft_putchar('0', fd);
 	else if (n < 0)
 	{
-		ft_putchar('-');
+		ft_putchar('-', fd);
 		n = -n;
 		ft_putnbr_fd(n, fd);
 	}
@@ -38,12 +37,12 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		ft_putchar(n + 48);
+		ft_putchar(n + 48, fd);
 }
 
-static void	ft_putchar(int c)
+static void	ft_putchar(int c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
 // #include <limits.h>

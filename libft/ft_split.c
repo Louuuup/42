@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:39:56 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/06 13:16:23 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:52:45 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ char	**ft_split(char const *s, char c)
 	char	**output;
 
 	splits = split_count(s, c);
-	output = (char **)malloc(splits * sizeof(char *) + 1);
+	output = (char **)malloc((splits + 1) * sizeof(char *));
 	if (!output)
 		return (NULL);
-	split_create(s, c, output);
-	return (output);
+	return (split_create(s, c, output));
 }
 
 // Counts the amounts of splitters and adds 1
@@ -40,7 +39,7 @@ static size_t	split_count(const char *str, char c)
 
 	i = 0;
 	x = 0;
-	if (!str || !str[0])
+	if (str == 0 || str[0] == 0)
 		return (0);
 	while (str[i])
 	{
@@ -79,6 +78,7 @@ static char	**split_create(const char *str, char c, char **out)
 		}
 		i++;
 	}
+	out[j] = NULL;
 	return (out);
 }
 

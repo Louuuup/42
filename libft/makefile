@@ -34,9 +34,12 @@ SRC = ft_bzero.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c
 BSRC = ft_lstnew.c \
-		ft_lstadd_front.c
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c
 OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
-BOBJ = $(addprefix $(BIN_DIR)/, $(BONUS_SRC:.c=.o))
+BOBJS = $(addprefix $(BIN_DIR)/, $(BSRC:.c=.o))
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra -o test
 LIBC = ar rc
@@ -53,8 +56,8 @@ endif
 all: $(NAME)
 $(BIN_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-$(NAME): $(BIN_DIR) $(OBJS)
-	$(LIBC) $(NAME) $(OBJS)
+$(NAME): $(BIN_DIR) $(OBJS_LIST)
+	$(LIBC) $(NAME) $(OBJS_LIST)
 	$(LIBR) $(NAME)
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)

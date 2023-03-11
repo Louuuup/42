@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:00:14 by yakary            #+#    #+#             */
-/*   Updated: 2023/03/10 14:59:22 by ycyr-roy         ###   ########.fr       */
+/*   Created: 2023/03/10 20:00:33 by ycyr-roy          #+#    #+#             */
+/*   Updated: 2023/03/10 21:27:03 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*mettons;
-
-	mettons = ft_calloc(sizeof(t_list), 1);
-	mettons->content = content;
-	mettons->next = NULL;
-	return (mettons);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}	
+	return (lst);
 }

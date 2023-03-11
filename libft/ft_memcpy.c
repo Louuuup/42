@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:01:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/02/27 13:49:33 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:35:21 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*x;
 	unsigned char	*y;
 
+	if (!dst || !src)
+		return (NULL);
 	x = (unsigned char *)dst;
 	y = (unsigned char *)src;
 	while (n--)
